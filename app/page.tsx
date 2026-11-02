@@ -6,7 +6,7 @@ const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!
 const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
 const supabase = createClient(supabaseUrl, supabaseAnonKey)
 
-export default function BillInquiry() {
+export default function Page() {
   const [subscriberNo, setSubscriberNo] = useState('')
   const [bill, setBill] = useState<any>(null)
   const [loading, setLoading] = useState(false)
@@ -21,7 +21,7 @@ export default function BillInquiry() {
       .single();
 
     if (error || !data) {
-      alert('رقم المشترك غير موجود');
+      alert('رقم المشترك غير موجود في قاعدة البيانات');
       setBill(null);
     } else {
       setBill(data);
@@ -30,29 +30,35 @@ export default function BillInquiry() {
   }
 
   return (
-    <div className="p-8 max-w-md mx-auto bg-white rounded-xl shadow-md space-y-4 mt-10">
-      <h2 className="text-xl font-bold text-center">الاستعلام عن الفاتورة</h2>
-      <input 
-        type="text" 
-        placeholder="أدخل رقم المشترك (6 أرقام)" 
-        value={subscriberNo}
-        onChange={(e) => setSubscriberNo(e.target.value)}
-        className="w-full p-2 border rounded"
-      />
-      <button 
-        onClick={handleSearch}
-        className="w-full bg-blue-600 text-white p-2 rounded"
-      >
-        {loading ? 'جاري البحث...' : 'استعلام'}
-      </button>
-
-      {bill && (
-        <div className="mt-4 p-4 border rounded bg-gray-50">
-          <p><strong>اسم المشترك:</strong> {bill.name}</p>
-          <p><strong>المبلغ المتبقي:</strong> {bill.amount} د.ع</p>
-          <p><strong>الحالة:</strong> {bill.status}</p>
+    <main className="min-h-screen bg-gray-50 p-6" dir="rtl">
+      <div className="max-w-xl mx-auto bg-white rounded-2xl shadow-lg p-6 space-y-6">
+        <h1 className="text-2xl font-bold text-center text-blue-900">كهرباء ذي قار - الاستعلام عن الفاتورة</h1>
+        
+        <div className="flex gap-2">
+          <input 
+            type="text" 
+            placeholder="أدخل رقم المشترك (مثال: 100001)" 
+            value={subscriberNo}
+            onChange={(e) => setSubscriberNo(e.target.value)}
+            className="flex-1 p-3 border rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500"
+          />
+          <button 
+            onClick={handleSearch}
+            className="bg-blue-600 text-white px-6 py-3 rounded-xl font-medium hover:bg-blue-700 transition"
+          >
+            {loading ? 'جاري البحث...' : 'استعلام'}
+          </button>
         </div>
-      )}
-    </div>
+
+        {bill && (
+          <div className="p-5 border border-blue-100 rounded-xl bg-blue-50 space-y-3">
+            <h3 className="font-bold text-blue-900 text-lg border-b pb-2">تفاصيل الفاتورة</h3>
+            <p><strong>اسم المشترك:</strong> {bill.name}</p>
+            <p><strong>المبلغ المطلوب:</strong> {bill.amount} د.ع</p>
+            <p><strong>الحالة:</strong> <span className="text-orange-600 font-bold">{bill.status}</span></p>
+          </div>
+        )}
+      </div>
+    </main>
   )
 }
