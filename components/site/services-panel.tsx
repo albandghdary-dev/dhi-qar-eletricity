@@ -1,5 +1,4 @@
-import { CheckCircle2, Factory, House, Store, ArrowLeft } from 'lucide-react'
-import { SectionHeading } from './section-heading'
+import { CheckCircle2, Factory, House, Store, ExternalLink } from 'lucide-react'
 
 const subscriberTypes = [
   {
@@ -30,21 +29,21 @@ const subscriberTypes = [
 
 export function ServicesPanel() {
   return (
-    <section className="py-16 bg-slate-50/50">
+    <section className="py-16 bg-slate-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <SectionHeading
-          badge="خدمات المشتركين"
-          title="خدمات مصممة لكل صنف من المشتركين"
-          description="اختر فئة الاشتراك الخاصة بك لتتعرف على الخدمات الرقمية والإجراءات المتاحة لك."
-        />
+        <div className="text-center max-w-3xl mx-auto mb-12">
+          <span className="text-blue-600 font-semibold text-sm bg-blue-50 px-3 py-1 rounded-full">خدمات المشتركين</span>
+          <h2 className="text-3xl font-bold text-slate-900 mt-3 mb-2">خدمات مصممة لكل صنف من المشتركين</h2>
+          <p className="text-slate-600">اختر فئة الاشتراك الخاصة بك لتتعرف على الخدمات الرقمية والإجراءات المتاحة لك.</p>
+        </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mt-12">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {subscriberTypes.map((type, index) => {
             const Icon = type.icon
             return (
               <div
                 key={index}
-                className="bg-white rounded-3xl p-8 shadow-sm border border-slate-100 flex flex-col justify-between transition-all duration-300 hover:shadow-md"
+                className="bg-white rounded-3xl p-8 shadow-sm border border-slate-100 flex flex-col justify-between"
               >
                 <div>
                   <div className="flex items-center justify-between mb-6">
@@ -76,7 +75,7 @@ export function ServicesPanel() {
                   className="w-full py-3 px-4 rounded-xl bg-slate-900 text-white font-semibold flex items-center justify-center hover:bg-slate-800 transition-colors shadow-sm"
                 >
                   <span>عرض الخدمات</span>
-                  <ArrowLeft className="w-4 h-4 mr-2" />
+                  <ExternalLink className="w-4 h-4 mr-2" />
                 </a>
               </div>
             )
