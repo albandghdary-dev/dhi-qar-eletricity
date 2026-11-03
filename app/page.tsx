@@ -3,6 +3,7 @@ import { ServicesPanel } from '@/components/site/services-panel'
 import NewsSection from '@/components/site/news-section'
 import OutageSchedule from '@/components/site/outage-schedule'
 import StatsRow from '@/components/site/stats-row'
+import SiteFooter from '@/components/site/site-footer'
 
 export default function Page() {
   return (
@@ -12,6 +13,7 @@ export default function Page() {
       <ServicesPanel />
       <OutageSchedule />
       <NewsSection />
+      <SiteFooter />
     </main>
   )
 }
