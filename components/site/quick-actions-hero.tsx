@@ -1,3 +1,5 @@
+'use client'
+
 import { ExternalLink, Zap, CreditCard, Wrench, UtilityPole } from 'lucide-react'
 import EnergyGridBackground from './energy-grid-background'
 
@@ -41,6 +43,11 @@ const actions = [
 ]
 
 export default function QuickActionsHero() {
+  const handleCardClick = (e: React.MouseEvent<HTMLDivElement>, url: string) => {
+    e.preventDefault()
+    window.open(url, '_blank', 'noopener,noreferrer')
+  }
+
   return (
     <section className="relative overflow-hidden py-12 lg:py-16 bg-slate-900 text-white" dir="rtl">
       <EnergyGridBackground />
@@ -59,15 +66,9 @@ export default function QuickActionsHero() {
           {actions.map((action, index) => {
             const Icon = action.icon
             return (
-              <a
+              <div
                 key={index}
-                href={action.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={(e) => {
-                  e.stopPropagation();
-                  window.open(action.href, '_blank', 'noopener,noreferrer');
-                }}
+                onClick={(e) => handleCardClick(e, action.href)}
                 className={relative rounded-2xl p-6 transition-all duration-300 hover:scale-[1.02] hover:shadow-xl flex flex-col justify-between shadow-lg cursor-pointer ${action.card}}
               >
                 <div>
@@ -81,7 +82,7 @@ export default function QuickActionsHero() {
                   <span>انتقل للخدمة</span>
                   <ExternalLink className="w-4 h-4 mr-2" />
                 </div>
-              </a>
+              </div>
             )
           })}
         </div>
