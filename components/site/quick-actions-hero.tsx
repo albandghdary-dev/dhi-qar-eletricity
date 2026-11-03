@@ -36,7 +36,7 @@ const actions = [
     href: 'https://ur.gov.iq/index/show-eservice/50933/10036/cat',
     card: 'bg-gradient-to-br from-emerald-500 to-teal-700 text-white',
     iconwrap: 'bg-white/20 text-white',
-    sub: 'emerald-100',
+    sub: 'text-emerald-100',
   },
 ]
 
