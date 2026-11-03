@@ -1,17 +1,23 @@
+import SiteHeader from '@/components/site/site-header'
 import QuickActionsHero from '@/components/site/quick-actions-hero'
+import StatsRow from '@/components/site/stats-row'
 import { ServicesPanel } from '@/components/site/services-panel'
 import NewsSection from '@/components/site/news-section'
 import OutageSchedule from '@/components/site/outage-schedule'
-import StatsRow from '@/components/site/stats-row'
+import SiteFooter from '@/components/site/site-footer'
 
-export default function Page() {
+export default function Home() {
   return (
-    <main className="min-h-screen bg-slate-900 text-white" dir="rtl">
-      <QuickActionsHero />
-      <StatsRow />
-      <ServicesPanel />
-      <OutageSchedule />
-      <NewsSection />
-    </main>
+    <>
+      <SiteHeader />
+      <main>
+        <QuickActionsHero />
+        <StatsRow />
+        <ServicesPanel />
+        <NewsSection />
+        <OutageSchedule />
+      </main>
+      <SiteFooter />
+    </>
   )
 }
