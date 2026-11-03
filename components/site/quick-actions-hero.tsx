@@ -1,7 +1,6 @@
 'use client'
 
 import { ExternalLink, Zap, CreditCard, Wrench, UtilityPole } from 'lucide-react'
-import EnergyGridBackground from './energy-grid-background'
 
 const actions = [
   {
@@ -43,14 +42,12 @@ const actions = [
 ]
 
 export default function QuickActionsHero() {
-  const handleCardClick = (e: React.MouseEvent<HTMLDivElement>, url: string) => {
-    e.preventDefault()
+  const handleCardClick = (url: string) => {
     window.open(url, '_blank', 'noopener,noreferrer')
   }
 
   return (
     <section className="relative overflow-hidden py-12 lg:py-16 bg-slate-900 text-white" dir="rtl">
-      <EnergyGridBackground />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center max-w-3xl mx-auto mb-12">
           <h2 className="text-3xl sm:text-4xl font-bold tracking-tight mb-4">
@@ -68,7 +65,7 @@ export default function QuickActionsHero() {
             return (
               <div
                 key={index}
-                onClick={(e) => handleCardClick(e, action.href)}
+                onClick={() => handleCardClick(action.href)}
                 className={relative rounded-2xl p-6 transition-all duration-300 hover:scale-[1.02] hover:shadow-xl flex flex-col justify-between shadow-lg cursor-pointer ${action.card}}
               >
                 <div>
