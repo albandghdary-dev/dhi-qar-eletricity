@@ -1,6 +1,5 @@
-import { ArrowLeft, CheckCircle2, ClipboardList, Factory, FileSignature, House, MessageSquareWarning, RefreshCw, Store } from 'lucide-react'
+import { CheckCircle2, Factory, House, Store, ArrowLeft } from 'lucide-react'
 import { SectionHeading } from './section-heading'
-import cn from '@/lib/utils'
 
 const subscriberTypes = [
   {
@@ -8,21 +7,15 @@ const subscriberTypes = [
     tag: 'سكني',
     description: 'خدمات مخصصة للمنازل، واستهلاك الكهرباء من الشريحة المدعومة إلى متابعة الاستهلاك المنزلي.',
     icon: House,
-    href: '/services/residential',
-    accent: 'bg-azure',
-    iconStyle: 'bg-azure/10 text-azure',
-    tagStyle: 'bg-azure/10 text-azure',
+    href: 'https://moelc.gov.iq/?billing',
     features: ['العداد الذكي مسبق الدفع', 'الفاتورة شهرية برسالة نصية', 'التقسيط للديون المتراكمة'],
   },
   {
     title: 'المشترك التجاري',
     tag: 'تجاري',
-    description: 'للمحال والأسواق والكتب والشركات الخدمية الخاصة مع دولة تجارية وبدعة ومعمة أولونية.',
+    description: 'للمحال والأسواق والشركات الخدمية الخاصة مع تسهيلات تجارية وخدمة أولوية.',
     icon: Store,
-    href: '/services/commercial',
-    accent: 'bg-teal',
-    iconStyle: 'bg-teal/10 text-teal',
-    tagStyle: 'bg-teal/10 text-[#0284c7]',
+    href: 'https://moelc.gov.iq/?page=1122%20',
     features: ['إدارة الاحمال المرتفعة', 'تقدير حسابات الاستهلاك', 'تسهيلات سداد الشركات'],
   },
   {
@@ -30,10 +23,7 @@ const subscriberTypes = [
     tag: 'صناعي',
     description: 'المصانع والورش والخطوط الإنتاجية الكبيرة، وتوفير طاقة مستقرة ومراقبة للقدرة المحركة.',
     icon: Factory,
-    href: '/services/industrial',
-    accent: 'bg-flame',
-    iconStyle: 'bg-flame/10 text-flame',
-    tagStyle: 'bg-flame/10 text-flame',
+    href: 'https://ur.gov.iq/index/show-eservice/50933/10036/cat',
     features: ['خطوط نقل خاصة', 'دراسة معاملات القدرة', 'تعرفة خاصة بالاستهلاك الصناعي'],
   },
 ]
@@ -58,15 +48,15 @@ export function ServicesPanel() {
               >
                 <div>
                   <div className="flex items-center justify-between mb-6">
-                    <div className={cn('w-14 h-14 rounded-2xl flex items-center justify-center', type.iconStyle)}>
+                    <div className="w-14 h-14 rounded-2xl flex items-center justify-center bg-blue-50 text-blue-600">
                       <Icon className="w-7 h-7" />
                     </div>
-                    <span className={cn('px-3 py-1 rounded-full text-xs font-semibold', type.tagStyle)}>
+                    <span className="px-3 py-1 rounded-full text-xs font-semibold bg-blue-50 text-blue-600">
                       {type.tag}
                     </span>
                   </div>
 
-                  <h3 className="text-2xl font-bold text-navy mb-3">{type.title}</h3>
+                  <h3 className="text-2xl font-bold text-slate-900 mb-3">{type.title}</h3>
                   <p className="text-slate-600 text-sm mb-6 leading-relaxed">{type.description}</p>
 
                   <div className="space-y-3 mb-8">
@@ -81,7 +71,9 @@ export function ServicesPanel() {
 
                 <a
                   href={type.href}
-                  className="w-full py-3 px-4 rounded-xl bg-navy text-white font-semibold flex items-center justify-center hover:bg-navy/90 transition-colors shadow-sm"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full py-3 px-4 rounded-xl bg-slate-900 text-white font-semibold flex items-center justify-center hover:bg-slate-800 transition-colors shadow-sm"
                 >
                   <span>عرض الخدمات</span>
                   <ArrowLeft className="w-4 h-4 mr-2" />
