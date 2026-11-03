@@ -64,7 +64,11 @@ export default function QuickActionsHero() {
                 href={action.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={relative rounded-2xl p-6 transition-all duration-300 hover:scale-[1.02] hover:shadow-xl flex flex-col justify-between shadow-lg ${action.card}}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  window.open(action.href, '_blank', 'noopener,noreferrer');
+                }}
+                className={relative rounded-2xl p-6 transition-all duration-300 hover:scale-[1.02] hover:shadow-xl flex flex-col justify-between shadow-lg cursor-pointer ${action.card}}
               >
                 <div>
                   <div className={w-12 h-12 rounded-xl flex items-center justify-center mb-4 ${action.iconwrap}}>
