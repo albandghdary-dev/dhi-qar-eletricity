@@ -1,7 +1,5 @@
-import { ArrowLeft, CreditCard, Activity, Clock4, UtilityPole, Wrench, Zap, ShieldCheck } from 'lucide-react'
+import { ArrowLeft, CreditCard, UtilityPole, Wrench, Zap } from 'lucide-react'
 import EnergyGridBackground from './energy-grid-background'
-import { BillInquiryPanel } from './bill-inquiry-panel'
-import { toArabicDigits } from '@/lib/bill-inquiry-events'
 import cn from '@/lib/utils'
 
 const actions = [
@@ -9,8 +7,8 @@ const actions = [
     title: 'استعلام الفاتورة',
     description: 'اعرف مبلغ فاتورتك واستهلاكك الشهري فوراً.',
     icon: Zap,
-    href: '/bill-inquiry',
-    card: 'bg-gradient-to-br from-[#FFL240] to-gold text-navy text-navy shadow-gold/25',
+    href: 'https://moelc.gov.iq/?billing',
+    card: 'bg-gradient-to-br from-[#FFD240] to-gold text-navy shadow-gold/25',
     iconwrap: 'bg-navy text-gold',
     sub: 'text-navy/70',
   },
@@ -18,7 +16,7 @@ const actions = [
     title: 'تسديد الفاتورة',
     description: 'ادفع إلكترونياً عبر البطاقات والمحافظ الرقمية.',
     icon: CreditCard,
-    href: '/services',
+    href: 'https://moelc.gov.iq/?page=1122%20',
     card: 'bg-gradient-to-br from-[#288CFF] to-azure text-white shadow-azure/25',
     iconwrap: 'bg-white/20 text-white',
     sub: 'text-white/80',
@@ -27,7 +25,7 @@ const actions = [
     title: 'الإبلاغ عن عطل',
     description: 'أبلغ عن انقطاع أو خطر في الشبكة وتابع حالة البلاغ.',
     icon: Wrench,
-    href: '/contact',
+    href: 'https://comp.moelc.gov.iq/',
     card: 'bg-gradient-to-br from-[#F88A3C] to-flame text-white shadow-flame/30',
     iconwrap: 'bg-white/20 text-white',
     sub: 'text-white/80',
@@ -36,7 +34,7 @@ const actions = [
     title: 'طلب مقياس جديد',
     description: 'قدم طلب اشتراك أو مقياس ذكي جديد إلكترونياً.',
     icon: UtilityPole,
-    href: '/services/new-meter',
+    href: 'https://ur.gov.iq/index/show-eservice/50933/10036/cat',
     card: 'bg-gradient-to-br from-[#10B981] to-emerald-600 text-white shadow-emerald/30',
     iconwrap: 'bg-white/20 text-white',
     sub: 'text-white/80',
@@ -65,6 +63,8 @@ export default function QuickActionsHero() {
               <a
                 key={index}
                 href={action.href}
+                target="_blank"
+                rel="noopener noreferrer"
                 className={cn(
                   'relative rounded-2xl p-6 transition-all duration-300 hover:scale-[1.02] hover:shadow-xl flex flex-col justify-between',
                   action.card
