@@ -1,4 +1,4 @@
-import { ArrowLeft, CreditCard, UtilityPole, Wrench, Zap } from 'lucide-react'
+import { ExternalLink, Zap, CreditCard, Wrench, UtilityPole } from 'lucide-react'
 import EnergyGridBackground from './energy-grid-background'
 
 const actions = [
@@ -75,7 +75,7 @@ export default function QuickActionsHero() {
                 </div>
                 <div className="flex items-center text-sm font-semibold mt-2">
                   <span>انتقل للخدمة</span>
-                  <ArrowLeft className="w-4 h-4 mr-2" />
+                  <ExternalLink className="w-4 h-4 mr-2" />
                 </div>
               </a>
             )
