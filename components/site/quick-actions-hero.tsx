@@ -5,14 +5,14 @@ const actions = [
     title: 'استعلام الفاتورة',
     description: 'اعرف مبلغ فاتورتك واستهلاكك الشهري فوراً.',
     icon: Zap,
-    href: 'https://moelc.gov.iq/?billing',
+    href: 'https://moelc.gov.iq',
     color: 'bg-amber-400 text-slate-900',
   },
   {
     title: 'تسديد الفاتورة',
     description: 'ادفع إلكترونياً عبر البطاقات والمحافظ الرقمية.',
     icon: CreditCard,
-    href: 'https://moelc.gov.iq/?page=1122%20',
+    href: 'https://moelc.gov.iq',
     color: 'bg-blue-600 text-white',
   },
   {
@@ -52,4 +52,26 @@ export default function QuickActionsHero() {
               <a
                 key={index}
                 href={action.href}
-                target
+                target="_blank"
+                rel="noopener noreferrer"
+                className={rounded-2xl p-6 transition-all duration-300 hover:scale-[1.02] flex flex-col justify-between shadow-lg ${action.color}}
+              >
+                <div>
+                  <div className="w-12 h-12 rounded-xl bg-black/10 flex items-center justify-center mb-4">
+                    <Icon className="w-6 h-6" />
+                  </div>
+                  <h3 className="text-xl font-bold mb-2">{action.title}</h3>
+                  <p className="text-sm opacity-90 mb-4">{action.description}</p>
+                </div>
+                <div className="flex items-center justify-between text-sm font-semibold mt-2">
+                  <span>اسأل للخدمة</span>
+                  <ExternalLink className="w-4 h-4 ml-2 mr-2" />
+                </div>
+              </a>
+            )
+          })}
+        </div>
+      </div>
+    </section>
+  )
+}
