@@ -26,7 +26,7 @@ const actions = [
     title: 'طلب مقياس جديد',
     description: 'قدم طلب اشتراك أو مقياس ذكي جديد إلكترونياً.',
     icon: UtilityPole,
-    href: 'https://ur.gov.iq/index/show-eservice/50933/10036/cat',
+    href: 'https://ur.gov.iq/index/show-eservice/50933/10036/cat/',
     color: 'bg-emerald-600 text-white',
   },
 ]
@@ -38,7 +38,7 @@ export default function QuickActionsHero() {
         <div className="text-center max-w-3xl mx-auto mb-12">
           <h2 className="text-3xl sm:text-4xl font-bold tracking-tight mb-4">
             خدمات الكهرباء في ذي قار
-            <span className="block text-amber-400 mt-2">أسرع، أوضح، ورقمية بالكامل</span>
+            <span className="block text-amber-400 mt-2">أسرع، أوضح، ورسمية بالكامل</span>
           </h2>
           <p className="text-lg text-gray-300">
             أنجز معاملاتك دون مراجعة الدوائر: استعلم عن فاتورتك، ادفعها، وأبلغ عن الأعطال على مدار الساعة.
@@ -52,26 +52,4 @@ export default function QuickActionsHero() {
               <a
                 key={index}
                 href={action.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={rounded-2xl p-6 transition-all duration-300 hover:scale-[1.02] flex flex-col justify-between shadow-lg ${action.color}}
-              >
-                <div>
-                  <div className="w-12 h-12 rounded-xl bg-black/10 flex items-center justify-center mb-4">
-                    <Icon className="w-6 h-6" />
-                  </div>
-                  <h3 className="text-xl font-bold mb-2">{action.title}</h3>
-                  <p className="text-sm opacity-90 mb-4">{action.description}</p>
-                </div>
-                <div className="flex items-center text-sm font-semibold mt-2">
-                  <span>انتقل للخدمة</span>
-                  <ExternalLink className="w-4 h-4 ml-2 mr-2" />
-                </div>
-              </a>
-            )
-          })}
-        </div>
-      </div>
-    </section>
-  )
-}
+                target
